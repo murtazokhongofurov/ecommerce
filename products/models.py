@@ -4,7 +4,7 @@ from users.models import CustomUser
 
 # Create your models here.
 
-class Catefory(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -13,7 +13,7 @@ class Catefory(models.Model):
 
 class Product(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    category = models.ForeignKey(Catefory, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     description = models.TextField()
     price = models.DecimalField(max_digits=1000000, decimal_places=2)
